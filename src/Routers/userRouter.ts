@@ -1,10 +1,11 @@
-import {Express} from "express";
-const Router = new Express.Router();
-const userController = require("../Controllers/userController")
+import express from "express"
+import userController from "../Controllers/userController";
+
+const router = express.Router();
 
 
-Router.get("/test", userController.getTest);
+router.get("/test", userController.getTest);
 
 
 
-export {Router}
+export default router
