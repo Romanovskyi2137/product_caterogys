@@ -1,5 +1,7 @@
+import { Response,  Request } from "express"
+
 class UserController {
-    getTest (req: any, res: any) {
+    getTest (req: Request, res: Response) {
         res.status(200).json("some response")
     }
 }
