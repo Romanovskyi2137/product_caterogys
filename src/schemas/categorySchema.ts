@@ -3,9 +3,10 @@ import { ICategory } from "../types/ICategory";
 
 
 
-const CategorySchema = new Schema<ICategory>({
-    author: String,
-    name: String
+const CategorySchema = new Schema({
+    author: {String, required: true},
+    name: {String, required: true},
+    number: Number
 });
 
 export const Category = model("Category", CategorySchema);

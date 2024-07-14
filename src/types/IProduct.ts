@@ -1,5 +1,8 @@
+import { Product } from "../schemas/productSchema"
+
+
 export interface IProduct {
-    _id?: string
+    _id?: number
     name: string
     category: string
     description?: string

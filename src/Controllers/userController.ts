@@ -25,7 +25,7 @@ class UserController {
     async createProduct (req: ProductCreateReq, res: Response) {
         try {
             const product = new Product({
-                name: req.body.name
+                name: req.body.name,
                 
             })
         } catch (e) {
