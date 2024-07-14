@@ -2,6 +2,7 @@ import { Response,  Request } from "express";
 import { Category } from "../schemas/categorySchema";
 import { ICategory } from "../types/ICategory";
 import { IProduct } from "../types/IProduct";
+import { Product } from "../schemas/productSchema";
 
 type CategoryCreateReq = Request & {body: ICategory};
 type ProductCreateReq = Request & {body: IProduct};
@@ -23,7 +24,10 @@ class UserController {
     };
     async createProduct (req: ProductCreateReq, res: Response) {
         try {
-            
+            const product = new Product({
+                name: req.body.name
+                
+            })
         } catch (e) {
             res.status(400).json(e)
         }
