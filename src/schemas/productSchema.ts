@@ -3,10 +3,11 @@ import { model, Schema } from "mongoose";
 
 
 const ProductSchema = new Schema({
-    id: {Number, required: true},
-    name: {String, required: true},
-    description: {String, required: true},
-    category: {String, required: true}
+    name: {type: String, required: true, unique: true},
+    category: String,
+    description: String,
+    price: Number,
+    quantity: Number
 });
 
 export const Product = model("Product", ProductSchema)

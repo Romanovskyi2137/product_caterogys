@@ -4,5 +4,5 @@ export interface ICategory {
     _id?: string
     name: string
     author: string
-    products?: IProduct[]
+    products?: IProduct[] | []
 }

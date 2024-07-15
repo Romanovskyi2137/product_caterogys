@@ -1,12 +1,11 @@
 import { Schema, model } from "mongoose";
-import { ICategory } from "../types/ICategory";
 
 
 
 const CategorySchema = new Schema({
-    author: {String, required: true},
-    name: {String, required: true},
-    number: Number
+    name: {type: String, required: true, unique: true},
+    author: {type: String, required: true},
+    products: Array
 });
 
 export const Category = model("Category", CategorySchema);
