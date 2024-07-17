@@ -19,7 +19,20 @@ class UserController {
         try {
             const category = new Category(data);
             await category.save();
-            res.status(200).json({data, message: "success"})
+            res.status(200).json({newCategory: data, message: "success"})
+        } catch (e) {
+            res.status(400).json(e)
+        }
+    };
+    async deleteCategory (req: Request, res: Response) {
+        try {
+            const _id: string = req.params._id;
+            const result = await Category.findByIdAndDelete(_id);
+            if (result === null) {
+                res.status(400).json({message: "this category does not exist"});
+                return
+            };
+            res.status(200).json({message: "success", result})
         } catch (e) {
             res.status(400).json(e)
         }
@@ -36,8 +49,21 @@ class UserController {
         try {
             const product = new Product(data);
             await product.save()
-            res.status(200).json({data, message: "success"})
+            res.status(200).json({newProduct: data, message: "success"})
         } catch (e) {            
+            res.status(400).json(e)
+        }
+    };
+    async deleteProduct (req: Request, res: Response) {
+        try {
+            const _id: string = req.params._id;
+            const result = await Product.findByIdAndDelete(_id);
+            if (result === null) {
+                res.status(400).json({message: "this product does not exist"});
+                return
+            };
+            res.status(200).json({message: "success", deletedProduct: result})
+        } catch (e) {
             res.status(400).json(e)
         }
     }
